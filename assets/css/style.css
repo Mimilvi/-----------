@@ -1,56 +1,119 @@
+:root body.light{
+    --border-color: black;
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
 body {
 margin: 0px;
 padding: 0px;
+background: var(--bg-color);
+color: var(--text-color);
+}
+body.dark{
+    --border-color: #ffffff;
+    --bg-color: rgba(32, 35, 50, 1);
+    --text-color: #ffffff;
 }
 #wrapper{
   /* border: 1px solid black;   */
   margin: 0px auto;
 }
 #header{
-    border: 1px solid black;  
-    height: 100px;
+    border: 1px solid var(--border-color); 
+    padding: 20px;
+    height: 50px;
     margin-bottom: 50px;
 }
+.logo img{
+    height: 50px;
+    width: 50px;
+}
+.logo{
+    float: left;
+}
+.courses{
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.download{
+    float: right;
+    margin-top: 15px;
+}
+.theme {
+    height: 50px;
+    width: 50px;
+    
+    
+}
+#header a{
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 10px;
+
+}
 #content{
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     height: 400px;
     margin: 45px 20px 45px 20px;
     
 }
 #content1{
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     height: 400px;
     margin: 0px 20px 45px 20px;
     
 }
 #content2{
-    border: 1px solid black;
-    height: 600px;
+    border: 1px solid var(--border-color);
+    height: 735px;
     margin: 0px 20px 45px 20px;
     
 }
-#content2content{
-    border: 1px solid black;
+#content2 #block{
+    border: 1px solid var(--border-color);
     height: 100px;
     margin: 20px; 
 }
-#content2content1{
-    border: 1px solid black;
+#content2 #block1{
+    border: 1px solid var(--border-color);
     height: 400px;
     margin: 20px 20px; 
 }
+#content2 #block2{
+    height: 150px;
+    margin: 20px 20px; 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px;
+    
+}
+#block2 #block3{
+    border: 1px solid var(--border-color);
+    height: 150px;
+    margin: 0px; 
+    width: 250px;
+    text-align: center;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 #content3{
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     height: 200px;
     margin: 0px 20px 45px 20px;
     
 }
-#content3content{
-    border: 1px solid black;
+#content3 #content{
+    border: 1px solid var(--border-color);
     height: 100px;
     margin: 50px 150px; 
 }
 #footer{
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     height: 200px;
 }
