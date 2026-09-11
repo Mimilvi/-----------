@@ -1,7 +1,12 @@
 :root body.light{
-    --border-color: black;
+    --border-color: rgba(45, 32, 24, 1);
     --bg-color: #ffffff;
     --text-color: #000000;
+    --color1: rgba(211, 182, 138, 1);
+    --color2: rgba(239, 229, 217, 1);
+    --color3: rgba(92, 98, 64, 1);
+    --color4: rgba(45, 32, 24, 1);
+    --footer: rgba(45, 32, 24, 1);
 }
 body {
 margin: 0px;
@@ -10,19 +15,25 @@ background: var(--bg-color);
 color: var(--text-color);
 }
 body.dark{
-    --border-color: #ffffff;
+    --border-color: rgba(32, 35, 50, 1);
     --bg-color: rgba(32, 35, 50, 1);
     --text-color: #ffffff;
+    --color1: rgba(67, 78, 96, 1);
+    --color2: rgba(139, 154, 159, 1);
+    --color3: rgba(188, 152, 118, 1);
+    --color4:rgba(32, 35, 50, 1);
+    --footer: rgba(139, 154, 159, 1);
 }
 #wrapper{
   /* border: 1px solid black;   */
   margin: 0px auto;
 }
 #header{
-    border: 1px solid var(--border-color); 
+    border: 1px solid var(--color1); 
     padding: 20px;
-    height: 50px;
-    margin-bottom: 50px;
+    height: 30px;
+    margin-bottom: 30px;
+    background-color: var(--color1);
 }
 .logo img{
     height: 50px;
@@ -33,12 +44,12 @@ body.dark{
 }
 .courses{
     float: left;
-    margin-top: 15px;
+    margin-top: 5px;
     margin-left: 0px;
 }
 .download{
     float: right;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 .theme {
     height: 50px;
@@ -53,52 +64,72 @@ p{
     font-size: 18px;
 }
 #header a{
-    color: var(--text-color);
+    color: var(--color1);
     text-decoration: none;
     font-size: 20px;
     border: 1px solid var(--border-color);
     border-radius: 30px;
-    padding: 10px;
+    padding: 5px;
+    background-color: var(--color4);
+}
+#info {
+  border: 1px solid var(--border-color);
+  min-height: 400px;           /* вместо height */
+  margin: 0 20px 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;             /* ← ВЕРНУЛИ: иначе блоки не влезут */
+  gap: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--color2);
+  box-sizing: border-box;
 
+  /* Минимальная ширина всего контейнера — экран не будет сжиматься дальше */
+  min-width: 320px;
 }
-#content #block a{
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 30px;
-    padding: 10px;
 
+#info #infoblock {
+  border: 1px solid var(--border-color);
+  min-height: 400px;           /* вместо height */
+  width: 150px;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* Гибкая ширина: базовая 250px, может сжиматься до 220px, растягиваться */
+  flex: 1 1 250px;
+  min-width: 220px;            /* ← блок не сожмётся меньше 220px */
+
+  /* Перенос длинных слов и текста внутри блока */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+
+  /* Если внутри есть очень длинные ссылки/строки без пробелов */
+  overflow: hidden;
 }
-#content{
-    border: 1px solid var(--border-color);
-    height: 400px;
-    margin: 0px 20px 45px 20px;
-    display: flex;
-    justify-content: space-between;
-    /* flex-wrap: wrap; — УБРАЛИ, чтобы блоки не переносились */
-    gap: 10px; /* отступы между блоками (можно убрать, если не нужны) */
-    padding: 20px;
-    border-radius: 20px;
-    
+
+/* Ссылка внутри блока */
+#info #infoblock a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 10px;
+  background-color: var(--color3);
+
+  /* Ссылка не должна вылезать за блок */
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
 }
-#content #block{
-    border: 1px solid var(--border-color);
+#loader{
     height: 400px;
-    margin: 0px;
-    width: 150px;
-    text-align: center;
-    padding: 20px;
-    /* Ключевое: разрешаем блокам сжиматься */
-    flex: 1 1 0;      /* растягиваются и сжимаются равномерно */
-    min-width: 0;     /* обязательно, иначе flex не даст сжать */
-    /* или: flex: 1 1 250px; — базовый размер 250px, но может уменьшаться */
-    box-sizing: border-box; /* чтобы border не ломал ширину */
-    
-}
-#content1{
-    height: 400px;
-    margin: 0px 20px 45px 20px;
+    margin: 0px 20px 30px 20px;
     display: flex;
     justify-content: space-between;
     /* flex-wrap: wrap; — УБРАЛИ, чтобы блоки не переносились */
@@ -106,7 +137,7 @@ p{
     padding: 0px;
     
 }
-#content1 #block {
+#loader #loaderblock {
     border: 1px solid var(--border-color);
     height: 400px;
     margin: 0;
@@ -119,27 +150,31 @@ p{
     /* или: flex: 1 1 250px; — базовый размер 250px, но может уменьшаться */
     box-sizing: border-box; /* чтобы border не ломал ширину */
     border-radius: 20px;
+    background-color: var(--color1);
 }
-#content2 {
+#detail {
     border: 1px solid var(--border-color);
     height: 735px;
-    margin: 0px 20px 45px 20px;
+    margin: 0px 20px 30px 20px;
     border-radius: 20px;
+    background-color: var(--color2);
 }
 
-#content2 #block {
+#detail #detailblock {
     border: 1px solid var(--border-color);
     height: 100px;
     margin: 20px;
+    background-color: var(--color3);
 }
 
-#content2 #block1 {
+#detail #imgblock1 {
     border: 1px solid var(--border-color);
     height: 400px;
     margin: 20px 20px;
+    
 }
 
-#content2 #block2 {
+#detail #detailblock2 {
     height: 150px;
     margin: 20px 20px;
     display: flex;
@@ -149,7 +184,7 @@ p{
     padding: 0px;
 }
 
-#block2 #block3 {
+#detail #detailblock3 {
     border: 1px solid var(--border-color);
     height: 150px;
     margin: 0;
@@ -161,21 +196,25 @@ p{
     min-width: 0;     /* обязательно, иначе flex не даст сжать */
     /* или: flex: 1 1 250px; — базовый размер 250px, но может уменьшаться */
     box-sizing: border-box; /* чтобы border не ломал ширину */
+    background-color: var(--color4);
 }
-#content3{
+#syllable{
     border: 1px solid var(--border-color);
     height: 200px;
-    margin: 0px 20px 45px 20px;
+    margin: 0px 20px 30px 20px;
     border-radius: 20px;
+    background-color: var(--color1);
 }
-#content3 #content{
+#syllable #syllableblock{
     border: 1px solid var(--border-color);
     height: 100px;
     margin: 50px 150px; 
     padding: 0px;
     border-radius: 0px;
+    background-color: var(--color3);
 }
 #footer{
     border: 1px solid var(--border-color);
     height: 200px;
+    background-color: var(--footer);
 }
