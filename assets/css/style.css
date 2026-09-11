@@ -34,7 +34,7 @@ body.dark{
 .courses{
     float: left;
     margin-top: 15px;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 .download{
     float: right;
@@ -43,10 +43,25 @@ body.dark{
 .theme {
     height: 50px;
     width: 50px;
-    
-    
+}
+a.lang {
+    height: 50px;
+    width: 50px;
+    font-size: 10px;
+}
+p{
+    font-size: 18px;
 }
 #header a{
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 10px;
+
+}
+#content #block a{
     color: var(--text-color);
     text-decoration: none;
     font-size: 20px;
@@ -58,60 +73,107 @@ body.dark{
 #content{
     border: 1px solid var(--border-color);
     height: 400px;
-    margin: 45px 20px 45px 20px;
+    margin: 0px 20px 45px 20px;
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; — УБРАЛИ, чтобы блоки не переносились */
+    gap: 10px; /* отступы между блоками (можно убрать, если не нужны) */
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+#content #block{
+    border: 1px solid var(--border-color);
+    height: 400px;
+    margin: 0px;
+    width: 150px;
+    text-align: center;
+    padding: 20px;
+    /* Ключевое: разрешаем блокам сжиматься */
+    flex: 1 1 0;      /* растягиваются и сжимаются равномерно */
+    min-width: 0;     /* обязательно, иначе flex не даст сжать */
+    /* или: flex: 1 1 250px; — базовый размер 250px, но может уменьшаться */
+    box-sizing: border-box; /* чтобы border не ломал ширину */
     
 }
 #content1{
-    border: 1px solid var(--border-color);
     height: 400px;
     margin: 0px 20px 45px 20px;
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; — УБРАЛИ, чтобы блоки не переносились */
+    gap: 10px; /* отступы между блоками (можно убрать, если не нужны) */
+    padding: 0px;
     
 }
-#content2{
+#content1 #block {
+    border: 1px solid var(--border-color);
+    height: 400px;
+    margin: 0;
+    width: 350px;
+    text-align: center;
+    padding: 0;
+    /* Ключевое: разрешаем блокам сжиматься */
+    flex: 1 1 0;      /* растягиваются и сжимаются равномерно */
+    min-width: 0;     /* обязательно, иначе flex не даст сжать */
+    /* или: flex: 1 1 250px; — базовый размер 250px, но может уменьшаться */
+    box-sizing: border-box; /* чтобы border не ломал ширину */
+    border-radius: 20px;
+}
+#content2 {
     border: 1px solid var(--border-color);
     height: 735px;
     margin: 0px 20px 45px 20px;
-    
+    border-radius: 20px;
 }
-#content2 #block{
+
+#content2 #block {
     border: 1px solid var(--border-color);
     height: 100px;
-    margin: 20px; 
+    margin: 20px;
 }
-#content2 #block1{
+
+#content2 #block1 {
     border: 1px solid var(--border-color);
     height: 400px;
-    margin: 20px 20px; 
+    margin: 20px 20px;
 }
-#content2 #block2{
+
+#content2 #block2 {
     height: 150px;
-    margin: 20px 20px; 
+    margin: 20px 20px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; — УБРАЛИ, чтобы блоки не переносились */
+    gap: 10px; /* отступы между блоками (можно убрать, если не нужны) */
     padding: 0px;
-    
 }
-#block2 #block3{
+
+#block2 #block3 {
     border: 1px solid var(--border-color);
     height: 150px;
-    margin: 0px; 
+    margin: 0;
     width: 250px;
     text-align: center;
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    padding: 0;
+    /* Ключевое: разрешаем блокам сжиматься */
+    flex: 1 1 0;      /* растягиваются и сжимаются равномерно */
+    min-width: 0;     /* обязательно, иначе flex не даст сжать */
+    /* или: flex: 1 1 250px; — базовый размер 250px, но может уменьшаться */
+    box-sizing: border-box; /* чтобы border не ломал ширину */
 }
 #content3{
     border: 1px solid var(--border-color);
     height: 200px;
     margin: 0px 20px 45px 20px;
-    
+    border-radius: 20px;
 }
 #content3 #content{
     border: 1px solid var(--border-color);
     height: 100px;
     margin: 50px 150px; 
+    padding: 0px;
+    border-radius: 0px;
 }
 #footer{
     border: 1px solid var(--border-color);
