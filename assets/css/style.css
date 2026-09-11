@@ -1,4 +1,7 @@
-:root body.light{
+/* ========================
+   ПЕРЕМЕННЫЕ ТЕМ
+   ======================== */
+body.light {
     --border-color: rgba(45, 32, 24, 1);
     --bg-color: #ffffff;
     --text-color: #000000;
@@ -8,213 +11,383 @@
     --color4: rgba(45, 32, 24, 1);
     --footer: rgba(45, 32, 24, 1);
 }
-body {
-margin: 0px;
-padding: 0px;
-background: var(--bg-color);
-color: var(--text-color);
-}
-body.dark{
+
+body.dark {
     --border-color: rgba(32, 35, 50, 1);
     --bg-color: rgba(32, 35, 50, 1);
     --text-color: #ffffff;
     --color1: rgba(67, 78, 96, 1);
     --color2: rgba(139, 154, 159, 1);
     --color3: rgba(188, 152, 118, 1);
-    --color4:rgba(32, 35, 50, 1);
+    --color4: rgba(32, 35, 50, 1);
     --footer: rgba(139, 154, 159, 1);
 }
-#wrapper{
-  /* border: 1px solid black;   */
-  margin: 0px auto;
+
+/* ========================
+   БАЗА
+   ======================== */
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
 }
-#header{
-    border: 1px solid var(--color1); 
-    padding: 20px;
-    height: 30px;
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+p { font-size: 18px; }
+
+#wrapper {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 10px;
+}
+
+/* ========================
+   HEADER
+   ======================== */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 20px;
+    min-height: 60px;
     margin-bottom: 30px;
     background-color: var(--color1);
+    border: 1px solid var(--color1);
+    border-radius: 10px;
+    position: relative;
 }
-.logo img{
-    height: 50px;
-    width: 50px;
+
+/* Логотип слева */
+.logo {
+    display: flex;
+    align-items: center;
 }
-.logo{
-    float: left;
-}
-.courses{
-    float: left;
-    margin-top: 5px;
-    margin-left: 0px;
-}
-.download{
-    float: right;
-    margin-top: 5px;
-}
-.theme {
-    height: 50px;
-    width: 50px;
-}
-a.lang {
-    height: 50px;
-    width: 50px;
-    font-size: 10px;
-}
-p{
-    font-size: 18px;
-}
-#header a{
+
+.logo-link,
+.courses a {
     color: var(--color1);
     text-decoration: none;
     font-size: 20px;
     border: 1px solid var(--border-color);
     border-radius: 30px;
-    padding: 5px;
+    padding: 6px 14px;
     background-color: var(--color4);
+    display: inline-block;
 }
+
+/* Меню справа */
+.download {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#header a {
+    color: var(--color1);
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 6px 12px;
+    background-color: var(--color4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.theme, a.lang {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+}
+
+.theme img {
+    max-width: 24px;
+    height: auto;
+}
+
+/* Бургер — скрыт на десктопе */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+    background: var(--color4);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--color1);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Анимация бургера в крестик */
+.burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ========================
+   INFO
+   ======================== */
 #info {
-  border: 1px solid var(--border-color);
-  min-height: 400px;           /* вместо height */
-  margin: 0 20px 30px 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;             /* ← ВЕРНУЛИ: иначе блоки не влезут */
-  gap: 10px;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: var(--color2);
-  box-sizing: border-box;
-
-  /* Минимальная ширина всего контейнера — экран не будет сжиматься дальше */
-  min-width: 320px;
-}
-
-#info #infoblock {
-  border: 1px solid var(--border-color);
-  min-height: 400px;           /* вместо height */
-  width: 150px;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
-
-  /* Гибкая ширина: базовая 250px, может сжиматься до 220px, растягиваться */
-  flex: 1 1 250px;
-  min-width: 220px;            /* ← блок не сожмётся меньше 220px */
-
-  /* Перенос длинных слов и текста внутри блока */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-
-  /* Если внутри есть очень длинные ссылки/строки без пробелов */
-  overflow: hidden;
-}
-
-/* Ссылка внутри блока */
-#info #infoblock a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-size: 20px;
-  border: 1px solid var(--border-color);
-  border-radius: 30px;
-  padding: 10px;
-  background-color: var(--color3);
-
-  /* Ссылка не должна вылезать за блок */
-  display: inline-block;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-}
-#loader{
-    height: 400px;
-    margin: 0px 20px 30px 20px;
+    border: 1px solid var(--border-color);
+    min-height: 400px;
+    height: auto;
+    margin: 0 20px 30px 20px;
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; — УБРАЛИ, чтобы блоки не переносились */
-    gap: 10px; /* отступы между блоками (можно убрать, если не нужны) */
-    padding: 0px;
-    
-}
-#loader #loaderblock {
-    border: 1px solid var(--border-color);
-    height: 400px;
-    margin: 0;
-    width: 350px;
-    text-align: center;
-    padding: 0;
-    /* Ключевое: разрешаем блокам сжиматься */
-    flex: 1 1 0;      /* растягиваются и сжимаются равномерно */
-    min-width: 0;     /* обязательно, иначе flex не даст сжать */
-    /* или: flex: 1 1 250px; — базовый размер 250px, но может уменьшаться */
-    box-sizing: border-box; /* чтобы border не ломал ширину */
-    border-radius: 20px;
-    background-color: var(--color1);
-}
-#detail {
-    border: 1px solid var(--border-color);
-    height: 735px;
-    margin: 0px 20px 30px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
     border-radius: 20px;
     background-color: var(--color2);
 }
 
-#detail #detailblock {
+.infoblock {
     border: 1px solid var(--border-color);
-    height: 100px;
+    min-height: 400px;
+    text-align: center;
+    padding: 20px;
+    flex: 1 1 250px;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.infoblock a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 10px;
+    background-color: var(--color3);
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* ========================
+   LOADER
+   ======================== */
+#loader {
+    height: auto;
+    margin: 0 20px 30px 20px;
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.loaderblock {
+    border: 1px solid var(--border-color);
+    height: 400px;
+    flex: 1 1 300px;
+    min-width: 0;
+    text-align: center;
+    padding: 0;
+    border-radius: 20px;
+    background-color: var(--color1);
+}
+
+/* ========================
+   DETAIL
+   ======================== */
+#detail {
+    border: 1px solid var(--border-color);
+    min-height: 735px;
+    height: auto;
+    margin: 0 20px 30px 20px;
+    border-radius: 20px;
+    background-color: var(--color2);
+    padding-bottom: 20px;
+}
+
+.detailblock {
+    border: 1px solid var(--border-color);
+    min-height: 100px;
+    height: auto;
     margin: 20px;
     background-color: var(--color3);
 }
 
-#detail #imgblock1 {
+.imgblock1 {
     border: 1px solid var(--border-color);
-    height: 400px;
-    margin: 20px 20px;
-    
+    min-height: 400px;
+    height: auto;
+    margin: 20px;
 }
 
-#detail #detailblock2 {
-    height: 150px;
-    margin: 20px 20px;
+.detailblock2 {
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; — УБРАЛИ, чтобы блоки не переносились */
-    gap: 10px; /* отступы между блоками (можно убрать, если не нужны) */
-    padding: 0px;
+    gap: 10px;
+    margin: 20px;
+    flex-wrap: wrap; /* на узких экранах блоки переносятся */
+    height: auto;
 }
 
-#detail #detailblock3 {
+.detailblock3 {
     border: 1px solid var(--border-color);
-    height: 150px;
-    margin: 0;
-    width: 250px;
+    min-height: 150px;
+    height: auto;
     text-align: center;
-    padding: 0;
-    /* Ключевое: разрешаем блокам сжиматься */
-    flex: 1 1 0;      /* растягиваются и сжимаются равномерно */
-    min-width: 0;     /* обязательно, иначе flex не даст сжать */
-    /* или: flex: 1 1 250px; — базовый размер 250px, но может уменьшаться */
-    box-sizing: border-box; /* чтобы border не ломал ширину */
+    padding: 10px;
+    flex: 1 1 250px;
+    min-width: 0;
     background-color: var(--color4);
 }
-#syllable{
+
+/* ========================
+   SYLLABLE
+   ======================== */
+#syllable {
     border: 1px solid var(--border-color);
-    height: 200px;
-    margin: 0px 20px 30px 20px;
+    min-height: 200px;
+    height: auto;
+    margin: 0 20px 30px 20px;
     border-radius: 20px;
     background-color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#syllable #syllableblock{
+
+.syllableblock {
     border: 1px solid var(--border-color);
     height: 100px;
-    margin: 50px 150px; 
-    padding: 0px;
-    border-radius: 0px;
+    /* было margin: 50px 150px — на мобилке не влезет */
+    margin: 50px auto;
+    max-width: 600px;
+    width: 100%;
+    padding: 0;
     background-color: var(--color3);
 }
-#footer{
+
+/* ========================
+   FOOTER
+   ======================== */
+#footer {
     border: 1px solid var(--border-color);
-    height: 200px;
+    min-height: 200px;
+    height: auto;
     background-color: var(--footer);
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+}
+
+/* ========================
+   АДАПТИВ (MEDIA QUERIES)
+   ======================== */
+
+/* Планшеты */
+@media (max-width: 992px) {
+    #info { margin: 0 15px 25px 15px; padding: 15px; }
+    #loader { margin: 0 15px 25px 15px; }
+    #detail { margin: 0 15px 25px 15px; }
+    #syllable { margin: 0 15px 25px 15px; }
+
+    .infoblock { min-height: 300px; }
+    .loaderblock { height: 300px; }
+    .imgblock1 { min-height: 300px; }
+
+    p { font-size: 17px; }
+}
+
+
+
+/* Маленькие телефоны */
+@media (max-width: 480px) {
+    #wrapper { padding: 0 5px; }
+    p { font-size: 15px; }
+    .infoblock a { font-size: 16px; padding: 8px; }
+
+    #footer { min-height: 120px; }
+    .loaderblock { height: 160px; }
+}
+/* ========================
+   МОБИЛЬНОЕ МЕНЮ (бургер)
+   ======================== */
+@media (max-width: 768px) {
+
+    /* Показываем бургер */
+    .burger {
+        display: flex;
+    }
+
+    /* Меню скрыто по умолчанию, выпадает сверху */
+    .download {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 15px;
+        margin-top: 5px;
+        background-color: var(--color1);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+        /* Скрыто */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+        padding-top: 0;
+        padding-bottom: 0;
+        z-index: 100;
+    }
+
+    /* Открытое состояние */
+    .download.open {
+        max-height: 400px;
+        opacity: 1;
+        pointer-events: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .download a {
+        width: 100%;
+        justify-content: center;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .theme, a.lang {
+        width: 100%;
+        height: 45px;
+    }
+
+    .theme img {
+        max-width: 24px;
+    }
 }
