@@ -5,6 +5,7 @@ body.light {
     --border-color: rgba(45, 32, 24, 1);
     --bg-color: #ffffff;
     --text-color: #000000;
+    --text-footer: rgba(211, 182, 138, 1);
     --color1: rgba(211, 182, 138, 1);
     --color2: rgba(239, 229, 217, 1);
     --color3: rgba(92, 98, 64, 1);
@@ -18,6 +19,7 @@ body.dark {
     --border-color: rgba(32, 35, 50, 1);
     --bg-color: rgba(32, 35, 50, 1);
     --text-color: #ffffff;
+     --text-footer: #ffffff;
     --color1: rgba(67, 78, 96, 1);
     --color2: rgba(139, 154, 159, 1);
     --color3: rgba(188, 152, 118, 1);
@@ -158,7 +160,7 @@ p { font-size: 18px; }
    INFO
    ======================== */
 #info {
-  border: 1px solid var(--border-color);
+  
   min-height: 400px;
   height: auto;
   margin: 0 20px 30px 20px;
@@ -173,7 +175,7 @@ p { font-size: 18px; }
 }
 
 .infoblock {
-  border: 1px solid var(--border-color);
+  
   min-height: 400px;
   text-align: center;
   padding: 20px;
@@ -211,7 +213,6 @@ p { font-size: 18px; }
   color: var(--text-color);
   text-decoration: none;
   font-size: 20px;
-  border: 1px solid var(--border-color);
   border-radius: 30px;
   padding: 10px 20px;
   background-color: var(--color3);
@@ -239,7 +240,7 @@ p { font-size: 18px; }
 }
 
 .loaderblock {
-  border: 1px solid var(--border-color);
+  
   min-height: 400px;        /* было height — лучше min-height */
   flex: 1 1 300px;
   min-width: 260px;         /* ← было 0, из-за этого всё ломалось */
@@ -277,7 +278,6 @@ p { font-size: 18px; }
   color: var(--text-color);
   text-decoration: none;
   font-size: 20px;
-  border: 1px solid var(--border-color);
   border-radius: 30px;
   padding: 10px 20px;
   background-color: var(--color3);
@@ -296,7 +296,7 @@ p { font-size: 18px; }
    DETAIL
    ======================== */
 #detail {
-  border: 1px solid var(--border-color);
+ 
   min-height: 400px;              /* было 735px — слишком много */
   height: auto;
   margin: 0 20px 30px 20px;
@@ -308,7 +308,7 @@ p { font-size: 18px; }
 
 /* Верхний текстовый блок */
 .detailblock {
-  border: 1px solid var(--border-color);
+
   min-height: 100px;
   height: auto;
   margin: 0 0 20px 0;             /* убрали margin: 20px, оставили только снизу */
@@ -324,11 +324,12 @@ p { font-size: 18px; }
   margin: 0;
   font-size: 18px;
   line-height: 1.5;
+  
 }
 
 /* Блок с картинкой — картинка по рамке */
 .imgblock1 {
-  border: 1px solid var(--border-color);
+  
   height: 400px;                  /* фиксированная высота, чтобы img:100% работал */
   margin: 0 0 20px 0;
   overflow: hidden;               /* обрезает картинку по рамке */
@@ -358,7 +359,8 @@ p { font-size: 18px; }
 }
 
 .detailblock3 {
-  border: 1px solid var(--border-color);
+  
+  color: var(--text-footer);
   min-height: 150px;
   height: auto;
   text-align: center;
@@ -385,7 +387,7 @@ p { font-size: 18px; }
    SYLLABLE
    ======================== */
 #syllable {
-  border: 1px solid var(--border-color);
+  
   min-height: 200px;
   height: auto;
   margin: 0 20px 30px 20px;
@@ -400,7 +402,7 @@ p { font-size: 18px; }
 }
 
 .syllableblock {
-  border: 1px solid var(--border-color);
+ 
   min-height: 100px;              /* было height: 100px — пусть растёт */
   height: auto;
   margin: 0;                      /* ← было margin: 50px auto — убрали */
@@ -438,7 +440,7 @@ color: var(--text-color, #fff);
    ======================== */
 /* ===== Ваш стиль (немного расширен) ===== */
 #footer {
-  border: 1px solid var(--border-color);
+ 
   min-height: 200px;
   height: auto;
   background-color: var(--footer);
@@ -451,7 +453,7 @@ color: var(--text-color, #fff);
   justify-content: space-between;
   gap: 30px;
   box-sizing: border-box;
-  color: var(--text-color, #fff);
+  color: var(--text-footer, #fff);
 }
 
 /* ===== Колонки футера ===== */
@@ -478,7 +480,7 @@ color: var(--text-color, #fff);
 }
 
 .contacts a {
-  color: var(--text-color, #fff);
+  color: var(--text-footer, #fff);
   text-decoration: none;
   font-size: 16px;
   display: inline-flex;
